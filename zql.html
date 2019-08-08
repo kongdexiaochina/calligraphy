@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @font-face
+      {
+      font-family: xingshuRegular;
+      src: url('./font/钟齐立强行书简.ttf');
+      }
+      .content {
+        font-family: xingshuRegular;
+        font-size: 50px;
+      }
+  </style>
+</head>
+<body>
+  <div style="margin-top:15px;">
+      <input id="inp"/>
+      <button id="add">添加内容</button>
+      <button id="del">删除内容</button>
+  </div>
+  <div style="margin-top:10px;">
+      <button id="setFontSizeAdd">增加字体</button>
+      <button id="setFontSizeReduce">减小字体</button>
+  </div>
+  <div class="content" style="text-align: center;padding:10px;">
+    哈哈哈
+  </div>
+</body>
+<script src="jquery.min.js"></script>
+<script>
+  $(function() {
+    var fontSize = 50;
+    $('#add').click(function() {
+      var a = $.trim($('.content').html())
+      $(".content").html(a+$('#inp').val())
+      $('#inp').val('')
+    })
+    $('#del').click(function() {
+      $('.content').html('')
+    })
+    $('#setFontSizeAdd').click(function() {
+      fontSize = fontSize+=5
+      $('.content').css('fontSize', fontSize+'px')
+    })
+    $('#setFontSizeReduce').click(function() {
+      if(fontSize <=20) {
+        return;
+      }
+      fontSize = fontSize-=5
+      $('.content').css('fontSize', fontSize+'px')
+    })
+  })
+  
+</script>
+</html>
